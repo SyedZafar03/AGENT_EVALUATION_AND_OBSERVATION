@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.0, pytest-9.1.1, pluggy-1.6.0 -- /opt/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/Evaluation-and-Observability-Project/Evaluation-and-Observability-Project
+plugins: asyncio-1.4.0, anyio-4.14.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+tests/test_policy.py::test_policy_routing_rules PASSED                   [100%]
+
+============================== 1 passed in 0.01s ===============================

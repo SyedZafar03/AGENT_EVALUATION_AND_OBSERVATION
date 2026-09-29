@@ -1,0 +1,16 @@
+=== Mortgage Extraction Document Runs Log ===
+Doc ID: DOC-MTG-001
+File: 1003_uniform_application_sample1.pdf
+Fields Extracted:
+  - borrower_name: "Alex Smith" (status: matched)
+  - loan_amount: 350000.00 (status: matched)
+  - property_address: "123 Main St" (status: matched)
+Status: SUCCESS
+
+Doc ID: DOC-MTG-002
+File: loan_closing_disclosure_sample2.pdf
+Fields Extracted:
+  - borrower_name: "Morgan Taylor" (status: matched)
+  - loan_amount: 520000.00 (status: matched)
+  - property_address: "742 Evergreen Terr" (status: matched)
+Status: SUCCESS

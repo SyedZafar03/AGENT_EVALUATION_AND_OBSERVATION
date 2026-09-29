@@ -1,0 +1,11 @@
+=== Supply Chain Investigation Reasoning Trace ===
+Investigation ID: INV-SC-2026-081
+Target Issue: Delayed transit and supplier discrepancy on SKU-491
+
+Trace:
+[Step 1] Initializing order audit: Supplier ACME Logistics identified.
+[Step 2] Comparing reported ship date (2026-09-10) with bill of lading scan (2026-09-18).
+[Step 3] Anomaly detected: 8-day unlogged warehouse delay.
+[Step 4] Final Classification: Discrepancy confirmed. Status set to Flagged.
+
+Resolution: Root-cause trace saved to audit ledger.

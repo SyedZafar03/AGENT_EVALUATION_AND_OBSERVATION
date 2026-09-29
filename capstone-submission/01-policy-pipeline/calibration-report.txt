@@ -1,0 +1,5 @@
+=== System 1 Routing Calibration Report ===
+Evaluated Routes: policy_check, human_review, auto_approve
+Measured Decisions: 3 total, 3 concordant (100% adherence)
+Edge Case Routing: Ambiguous inputs correctly escalated to human review.
+Calibration Assessment: High confidence on standard policies; zero false auto-approvals observed.

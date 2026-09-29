@@ -1,0 +1,23 @@
+[
+  {
+    "input_id": "REQ-001",
+    "prompt": "Apply standard term extension under hardship policy.",
+    "route_taken": "policy_check",
+    "status": "success",
+    "confidence": 0.98
+  },
+  {
+    "input_id": "REQ-002",
+    "prompt": "Applicant requested immediate exception outside normal limits.",
+    "route_taken": "human_review",
+    "status": "routed_escalation",
+    "confidence": 0.92
+  },
+  {
+    "input_id": "REQ-003",
+    "prompt": "Standard renewal within clear pre-approved criteria.",
+    "route_taken": "auto_approve",
+    "status": "success",
+    "confidence": 0.99
+  }
+]
