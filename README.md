@@ -22,7 +22,7 @@ The three reference systems originate from the course repository (`cd15552 Claud
 ## 2. Evidence Pack Directory Layout
 
 All evaluation traces, execution logs, test outputs, and generated synthesis reports are located inside the `capstone-submission/` directory:
-
+```
 capstone-submission/
 ├── reflection-brief.md            # Completed reflection brief citing exact empirical numbers and run artifacts
 ├── environment.txt                # System runtime specifications (Python version, host OS, virtual environment)
@@ -50,7 +50,7 @@ capstone-submission/
 ├── briefing.txt               # Synthesized 3-section risk briefing (Verified, Contested, Incomplete)
 ├── timeout-run.txt            # Simulated source timeout demonstration (--simulate-timeout)
 └── screenshots/               # Terminal execution captures
-
+```
 
 ---
 
