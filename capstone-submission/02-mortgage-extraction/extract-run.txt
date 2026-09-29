@@ -1,0 +1,21 @@
+{
+  "document_type": "w2_paystub",
+  "borrower": {
+    "name": "Jane Doe",
+    "employer": "Acme Technologies Corp"
+  },
+  "income": {
+    "base_monthly": 5673.08,
+    "overtime_monthly": 0.0,
+    "bonus_monthly": null,
+    "bonus_ytd": null,
+    "commission_monthly": 0.0,
+    "stated_monthly_total": null
+  },
+  "property": {
+    "type": "single_family",
+    "gross_living_area_sqft": 2400
+  },
+  "extraction_status": "success",
+  "normalized_fields": 4
+}

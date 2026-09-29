@@ -1,0 +1,15 @@
+# Supplier Risk Briefing: Meridian Manufacturing
+
+## 1. Verified Claims
+- Facility ISO 9001 certification active through 2027-01-15 (Source: supplier_audit, as of 2026-03-01)
+- Primary shipping hub: Port of Savannah (Source: logistics, as of 2026-04-01)
+- Average component cycle time: 14.2 days (Source: erp_system, as of 2026-04-02)
+
+## 2. Contested Findings
+- on_time_delivery_rate:
+  * 95.0% — supplier_audit (as of 2026-04-10)
+  * 78.0% — logistics (as of 2026-04-05)
+  [Note: Temporal discrepancy observed between internal audit self-reporting and external freight tracking.]
+
+## 3. Incomplete / Unavailable Data
+- late_shipment_count: Unverified due to upstream logistics API latency.
