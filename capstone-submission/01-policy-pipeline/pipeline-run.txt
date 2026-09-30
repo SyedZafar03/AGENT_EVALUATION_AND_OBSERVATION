@@ -1,11 +1,2 @@
-[INFO] Starting Policy Extraction Pipeline in replay/offline mode...
-[INFO] Loading policies from data/policies/...
-[INFO] Processing POL-001 (auto) -> Extracted 5 fields, confidence avg: 0.98 -> ROUTE: auto_approve
-[INFO] Processing POL-101 (commercial) -> Extracted 6 fields, premium_amount confidence: 0.65 (< 0.90) -> ROUTE: human_review
-[INFO] Processing POL-202 (homeowners) -> Extracted 7 fields, random spot check selected -> ROUTE: spot_check
-[INFO] Processing POL-303 (umbrella) -> Extracted 5 fields, exclusions confidence: 0.72 (< 0.90) -> ROUTE: human_review
-[INFO] Pipeline execution complete.
-Decisions written to routing_decisions.json:
-  auto_approve: 1
-  human_review: 2
-  spot_check: 1
+usage: policy-extractor [-h] {extract,batch,pipeline} ...
+policy-extractor: error: unrecognized arguments: --mode replay

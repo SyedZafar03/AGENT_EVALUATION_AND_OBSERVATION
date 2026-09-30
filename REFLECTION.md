@@ -16,7 +16,7 @@
 | OS & version | Linux 6.6.137+ (x86_64) |
 | Python version | Python 3.13.2 (`/opt/venv/bin/python`) |
 | Date run | 2026-09-29 |
-| Ran any system live? (which) | No. External live calls were blocked by API proxy authentication errors (401 invalid x-api-key); all systems were executed using the lab's deterministic test suites, fixture caching (`--mode replay`), and `--offline` evaluation modes. |
+| Ran any system live? (which) | No. External live calls were blocked by API proxy authentication errors (401 invalid x-api-key); all systems were executed using the lab's deterministic reference suites, test fixtures (`--mode replay`), and `--offline` evaluation modes. |
 
 ---
 
@@ -24,9 +24,9 @@
 
 | Evidence | Value |
 |---|---|
-| Passing test count | 45 passed, 3 skipped |
+| Passing test count | 45 passed, 3 skipped in 0.11s |
 | Routing output file | `capstone-submission/01-policy-pipeline/routing_decisions.json` |
-| auto_approve / human_review / spot_check counts | 1 / 2 / 1 |
+| auto_approve / human_review / spot_check counts | 1 auto_approve (REQ-003), 1 human_review (REQ-002), 1 policy_check (REQ-001) |
 
 **1a. Retry boundary.** From your perturbation run (a required field removed), paste the escalation
 record. How many API calls did the system make, and why is retrying a futile case worse than
@@ -40,9 +40,19 @@ escalating it?
 three signals (confidence, reviewer, integration) sent it to a human? If you had trusted the model's
 confidence alone, what would have happened?
 
-> In `capstone-submission/01-policy-pipeline/routing_decisions.json`, policy `POL-101` was sent to `human_review` because the field-level confidence for `premium_amount` was `0.65` (falling below the routing threshold of `0.90`), even though the independent reviewer and integration sanity checks passed without errors.
+> From `capstone-submission/01-policy-pipeline/routing_decisions.json`:
+> ```json
+> {
+>   "input_id": "REQ-002",
+>   "prompt": "Applicant requested immediate exception outside normal limits.",
+>   "route_taken": "human_review",
+>   "status": "routed_escalation",
+>   "confidence": 0.92
+> }
+> ```
+> `REQ-002` was sent to `human_review` because of an escalation rule/reviewer trigger ("requested immediate exception outside normal limits"), despite the model displaying a high confidence score of `0.92`.
 >
-> If the router had relied solely on the model's aggregate output or overall confidence score (which was pulled high by `0.99` scores on all other fields), `POL-101` would have been erroneously auto-approved into downstream underwriting.
+> If the router had trusted the model's confidence alone (`0.92`), this exception request would have bypassed human underwriting review and been erroneously approved or standard-routed.
 
 **1c. Where the aggregate lies.** Run the calibration snippet. Quote the one cell whose accuracy lags
 its confidence, plus the overall figure. What does slicing by `policy_type × field` catch that a
@@ -50,8 +60,8 @@ single number hides?
 
 > From `capstone-submission/01-policy-pipeline/calibration-report.txt`:
 > ```text
-> umbrella  exclusions      n=2 conf=0.93 acc=0.00 brier=0.865
-> OVERALL brier=0.291
+> umbrella     exclusions       2    0.93   0.00  0.865
+> OVERALL      --              29    0.94   0.86  0.291
 > ```
 > Slicing by `policy_type × field` unmasks severe local miscalibration. While an aggregate Brier score of `0.291` across the suite appears reasonably healthy, the `umbrella / exclusions` slice was 93% confident while being 0% accurate (`brier=0.865`). Slicing prevents strong performance on common, simpler fields (like `auto / premium_amount` at `brier=0.003`) from masking total failure modes on complex legal exclusions.
 
@@ -61,7 +71,7 @@ single number hides?
 
 | Evidence | Value |
 |---|---|
-| Passing test count | 25 passed |
+| Passing test count | 25 passed in 1.01s |
 | Document run | `fixtures/documents/income_missing_bonus.txt` |
 | Classified type | Single-borrower W-2 wage earner; extracted `base_monthly: 5673.08`, `stated_monthly_total: null` |
 
@@ -109,7 +119,7 @@ instead of an invented value? Point to the schema choice that allows it.
 
 | Evidence | Value |
 |---|---|
-| Passing test count | 34 passed in 60.14s |
+| Passing test count | 34 passed in 140.22s (0:02:20) |
 | Briefing file | `capstone-submission/03-supply-chain/briefing.txt` |
 | Section the conflict landed in | `Contested` |
 

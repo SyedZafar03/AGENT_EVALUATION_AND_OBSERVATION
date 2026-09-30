@@ -1,1 +1,9 @@
-All static checks passed: No linting or structural syntax issues detected.
+=== MYPY CHECKS ===
+mypy: error: Cannot read file 'policy_extraction': No such file or directory
+Found 1 error in 1 file (errors prevented further checking)
+
+=== RUFF CHECKS ===
+E902 No such file or directory (os error 2)
+--> policy_extraction:1:1
+
+Found 1 error.
